@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeftOver Connect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">LeftOver Connect</div>
+            <ul class="nav-links">
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+                <li><a onclick="showSection('ngo')">NGO</a></li>
+                <li><a onclick="showSection('map')">Map</a></li>
+                <li><a onclick="showSection('transport')">Transport</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <h1>Connect Food, Combat Waste</h1>
+                    <p>Bridging the gap between surplus food and those in need through smart connections</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn" onclick="showSection('contact')">Donate Food</a>
+                        <a href="#" class="btn btn-outline" onclick="showSection('ngo')">Join as NGO</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>Meals Saved</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Partner NGOs</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>200+</h3>
+                            <p>Active Donors</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15</h3>
+                            <p>Cities Covered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: 2rem;">How It Works</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🏠</div>
+                            <h3>Homes Donate</h3>
+                            <p>Households register leftover food that's still good to eat, reducing waste at the source.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🤝</div>
+                            <h3>Smart Matching</h3>
+                            <p>Our platform connects donors with nearby NGOs based on location, food type, and quantity.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚚</div>
+                            <h3>Quick Transport</h3>
+                            <p>Coordinated pickup and delivery system ensures food reaches those in need quickly and safely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Get In Touch</h2>
+                
+                <div class="donation-form">
+                    <h3>Donate Food</h3>
+                    <form onsubmit="submitDonation(event)">
+                        <div class="form-group">
+                            <label>Food Type:</label>
+                            <select required>
+                                <option value="">Select food type</option>
+                                <option value="cooked-meals">Cooked Meals</option>
+                                <option value="raw-ingredients">Raw Ingredients</option>
+                                <option value="packaged-foods">Packaged Foods</option>
+                                <option value="fruits-vegetables">Fruits & Vegetables</option>
+                                <option value="bakery-items">Bakery Items</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity (Approximate servings):</label>
+                            <input type="number" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Pickup Address:</label>
+                            <textarea required placeholder="Enter your full address"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Available Time:</label>
+                            <input type="datetime-local" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number:</label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Special Instructions:</label>
+                            <textarea placeholder="Any specific handling instructions or notes"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Donation</button>
+                    </form>
+                </div>
+
+                <div class="contact-form">
+                    <h3>General Contact</h3>
+                    <form onsubmit="submitContact(event)">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject:</label>
+                            <select required>
+                                <option value="">Select subject</option>
+                                <option value="partnership">Partnership Inquiry</option>
+                                <option value="volunteer">Volunteer</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message:</label>
+                            <textarea required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- NGO Section -->
+        <section id="ngo" class="section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Partner NGOs</h2>
+                <p style="text-align: center; margin-bottom: 2rem;">Working together to eliminate food waste and hunger</p>
+                
+                <div class="ngo-grid">
+                    <div class="ngo-card">
+                        <h3>Food For All Foundation</h3>
+                        <p><strong>Location:</strong> Mumbai, Maharashtra</p>
+                        <p><strong>Specialization:</strong> Cooked meals distribution</p>
+                        <p><strong>Contact:</strong> +91 98765 43210</p>
+                        <p><strong>Capacity:</strong> 500+ meals/day</p>
+                        <p>Focuses on providing fresh, nutritious meals to homeless communities and underprivileged children.</p>
+                        <button class="btn" onclick="connectNGO('Food For All Foundation')">Connect</button>
+                    </div>
+                    
+                    <div class="ngo-card">
+                        <h3>Hunger Relief Society</h3>
+                        <p><strong>Location:</strong> Delhi NCR</p>
+                        <p><strong>Specialization:</strong> Raw ingredients & packaged food</p>
+                        <p><strong>Contact:</strong> +91 87654 32109</p>
+                        <p><strong>Capacity:</strong> 300+ families/week</p>
+                        <p>Distributes raw materials and packaged foods to families in slum areas and refugee camps.</p>
+                        <button class="btn" onclick="connectNGO('Hunger Relief Society')">Connect</button>
+                    </div>
+                    
+                    <div class="ngo-card">
+                        <h3>Seva Sangh Trust</h3>
+                        <p><strong>Location:</strong> Bangalore, Karnataka</p>
+                        <p><strong>Specialization:</strong> Senior citizens & healthcare</p>
+                        <p><strong>Contact:</strong> +91 76543 21098</p>
+                        <p><strong>Capacity:</strong> 200+ seniors/day</p>
+                        <p>Provides nutritious meals to elderly care homes and community health centers.</p>
+                        <button class="btn" onclick="connectNGO('Seva Sangh Trust')">Connect</button>
+                    </div>
+                    
+                    <div class="ngo-card">
+                        <h3>Green Earth Initiative</h3>
+                        <p><strong>Location:</strong> Chennai, Tamil Nadu</p>
+                        <p><strong>Specialization:</strong> Environmental & food sustainability</p>
+                        <p><strong>Contact:</strong> +91 65432 10987</p>
+                        <p><strong>Capacity:</strong> 400+ meals/day</p>
+                        <p>Combines food waste reduction with environmental awareness programs in schools and communities.</p>
+                        <button class="btn" onclick="connectNGO('Green Earth Initiative')">Connect</button>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <h3>Join Our Network</h3>
+                    <p style="margin: 1rem 0;">Are you an NGO looking to partner with us?</p>
+                    <button class="btn" onclick="showNGORegistration()">Register Your NGO</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section id="map" class="section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Food Distribution Network</h2>
+                
+                <div class="location-filters">
+                    <select onchange="filterByCity(this.value)">
+                        <option value="all">All Cities</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="kolkata">Kolkata</option>
+                    </select>
+                    
+                    <select onchange="filterByType(this.value)">
+                        <option value="all">All Types</option>
+                        <option value="donors">Food Donors</option>
+                        <option value="ngos">NGOs</option>
+                        <option value="transport">Transport Hubs</option>
+                    </select>
+                    
+                    <button class="btn" onclick="refreshMap()">Refresh Map</button>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        🗺️ Interactive Map Loading...<br>
+                        <small>Showing food donors, NGOs, and transport routes in real-time</small>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h3>Current Activity</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📍</div>
+                            <h3>Active Donations</h3>
+                            <p id="active-donations">23 donations available for pickup</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚚</div>
+                            <h3>In Transit</h3>
+                            <p id="in-transit">12 deliveries currently in progress</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h3>Completed Today</h3>
+                            <p id="completed-today">45 successful deliveries completed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transport Section -->
+        <section id="transport" class="section">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Transportation Network</h2>
+                <p style="text-align: center; margin-bottom: 2rem;">Efficient logistics to ensure food reaches its destination fresh and fast</p>
+                
+                <div class="transport-options">
+                    <div class="transport-card">
+                        <div class="transport-icon">🚲</div>
+                        <h3>Bicycle Delivery</h3>
+                        <p><strong>Range:</strong> 0-5 km</p>
+                        <p><strong>Capacity:</strong> Up to 10 meals</p>
+                        <p><strong>Time:</strong> 15-30 minutes</p>
+                        <p>Eco-friendly option for local deliveries within neighborhoods.</p>
+                        <button class="btn" onclick="bookTransport('bicycle')">Book Now</button>
+                    </div>
+                    
+                    <div class="transport-card">
+                        <div class="transport-icon">🏍️</div>
+                        <h3>Motorcycle Delivery</h3>
+                        <p><strong>Range:</strong> 0-15 km</p>
+                        <p><strong>Capacity:</strong> Up to 25 meals</p>
+                        <p><strong>Time:</strong> 20-45 minutes</p>
+                        <p>Fast delivery for medium-distance transportation across the city.</p>
+                        <button class="btn" onclick="bookTransport('motorcycle')">Book Now</button>
+                    </div>
+                    
+                    <div class="transport-card">
+                        <div class="transport-icon">🚐</div>
+                        <h3>Van Transport</h3>
+                        <p><strong>Range:</strong> 0-30 km</p>
+                        <p><strong>Capacity:</strong> Up to 100 meals</p>
+                        <p><strong>Time:</strong> 30-60 minutes</p>
+                        <p>Large capacity transport for bulk donations and inter-city delivery.</p>
+                        <button class="btn" onclick="bookTransport('van')">Book Now</button>
+                    </div>
+                    
+                    <div class="transport-card">
+                        <div class="transport-icon">🚛</div>
+                        <h3>Refrigerated Truck</h3>
+                        <p><strong>Range:</strong> Unlimited</p>
+                        <p><strong>Capacity:</strong> 500+ meals</p>
+                        <p><strong>Time:</strong> Scheduled</p>
+                        <p>Temperature-controlled transport for large-scale food distribution.</p>
+                        <button class="btn" onclick="bookTransport('truck')">Book Now</button>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem; padding: 2rem; background-color: #f9f9f9; border: 2px solid #000000;">
+                    <h3>Transport Tracking</h3>
+                    <p>Track your food donation in real-time</p>
+                    <div style="margin-top: 1rem;">
+                        <input type="text" placeholder="Enter tracking ID" style="padding: 10px; border: 2px solid #000000; width: 300px;">
+                        <button class="btn" onclick="trackDelivery()" style="margin-left: 1rem;">Track</button>
+                    </div>
+                    <div id="tracking-result" style="margin-top: 1rem;"></div>
+                </div>
+                
+                <div style="margin-top: 3rem;">
+                    <h3>Volunteer Drivers</h3>
+                    <p>Join our community of volunteer drivers and help us deliver food to those in need.</p>
+                    <div style="margin-top: 1rem;">
+                        <button class="btn btn-outline" onclick="registerDriver()">Register as Driver</button>
+                        <button class="btn" onclick="viewDrivers()">View Available Drivers</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
